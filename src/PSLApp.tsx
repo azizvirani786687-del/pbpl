@@ -76,12 +76,12 @@ const WIN_PTS = 15;
 
 // Pre-loaded standings after all matches till 2PM
 const BASELINE: Record<string, StandingRow> = {
-  KK: { id:"KK", name:"Kitchen Kings",    color:"#00897B", mp:3, w:3, l:0, pts:3, npr:17  },
-  CC: { id:"CC", name:"Court Commanders", color:"#C62828", mp:3, w:2, l:1, pts:2, npr:29  },
-  DD: { id:"DD", name:"Dink Dragons",     color:"#1565C0", mp:4, w:2, l:2, pts:2, npr:14  },
-  SS: { id:"SS", name:"Serve Strikers",   color:"#E91E6E", mp:3, w:1, l:2, pts:1, npr:3   },
-  PP: { id:"PP", name:"Paddle Panthers",  color:"#7B1FA2", mp:3, w:1, l:2, pts:1, npr:-28 },
-  RR: { id:"RR", name:"Rally Racers",     color:"#888888", mp:4, w:1, l:3, pts:1, npr:-35 },
+  KK: { id: "KK", name: "Kitchen Kings", color: "#00897B", mp: 3, w: 3, l: 0, pts: 3, npr: 17 },
+  CC: { id: "CC", name: "Court Commanders", color: "#C62828", mp: 3, w: 2, l: 1, pts: 2, npr: 29 },
+  DD: { id: "DD", name: "Dink Dragons", color: "#1565C0", mp: 4, w: 2, l: 2, pts: 2, npr: 14 },
+  SS: { id: "SS", name: "Serve Strikers", color: "#E91E6E", mp: 3, w: 1, l: 2, pts: 1, npr: 3 },
+  PP: { id: "PP", name: "Paddle Panthers", color: "#7B1FA2", mp: 3, w: 1, l: 2, pts: 1, npr: -28 },
+  RR: { id: "RR", name: "Rally Racers", color: "#888888", mp: 4, w: 1, l: 3, pts: 1, npr: -35 },
 };
 
 const MATCHES: Match[] = [
