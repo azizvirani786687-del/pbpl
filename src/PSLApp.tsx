@@ -536,17 +536,65 @@ export default function PSLApp() {
         </div>
       </div>
 
-      {/* Role selector */}
-      <div style={{display:"flex",gap:5,padding:"7px 10px",background:"#111118",borderBottom:"1px solid #1a1a22",overflowX:"auto",scrollbarWidth:"none"}}>
-        {(Object.keys(ROLE_CONFIG) as Role[]).map(r=>(
-          <button key={r} onClick={()=>setRole(r)}
-            style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"4px 12px",borderRadius:20,
-              border:`1px solid ${role===r?ROLE_CONFIG[r].color:"#2a2a35"}`,
-              background:role===r?ROLE_CONFIG[r].color+"20":"#1a1a22",
-              color:role===r?ROLE_CONFIG[r].color:"#555",cursor:"pointer"}}>
-            {r==="admin"?"👑 Admin":r==="ref1"?"🔵 Ref 1":r==="ref2"?"🟢 Ref 2":r==="ref3"?"🟣 Ref 3":"👁️ View"}
-          </button>
-        ))}
+      {/* Role selector — separated groups: Admin | Referees | Spectator */}
+      <div style={{padding:"8px 10px",background:"#111118",borderBottom:"1px solid #1a1a22"}}>
+        <div style={{display:"flex",alignItems:"center",gap:12,justifyContent:"space-between"}}>
+          {/* Admin */}
+          <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:"flex-start"}}>
+            <div style={{fontSize:10,color:"#444",fontWeight:700,textTransform:"uppercase"}}>Admin</div>
+            <div style={{display:"flex",gap:6}}>
+              <button onClick={()=>setRole("admin")}
+                style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"6px 14px",borderRadius:20,
+                  border:`1px solid ${role==="admin"?ROLE_CONFIG.admin.color:"#2a2a35"}`,
+                  background:role==="admin"?ROLE_CONFIG.admin.color+"20":"#1a1a22",
+                  color:role==="admin"?ROLE_CONFIG.admin.color:"#555",cursor:"pointer"}}>
+                👑 Admin
+              </button>
+            </div>
+          </div>
+
+          {/* Referees */}
+          <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:"center",flex:1}}>
+            <div style={{fontSize:10,color:"#444",fontWeight:700,textTransform:"uppercase"}}>Referees</div>
+            <div style={{display:"flex",gap:6}}>
+              <button onClick={()=>setRole("ref1")}
+                style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"6px 12px",borderRadius:20,
+                  border:`1px solid ${role==="ref1"?ROLE_CONFIG.ref1.color:"#2a2a35"}`,
+                  background:role==="ref1"?ROLE_CONFIG.ref1.color+"20":"#1a1a22",
+                  color:role==="ref1"?ROLE_CONFIG.ref1.color:"#555",cursor:"pointer"}}>
+                🔵 Ref 1
+              </button>
+              <button onClick={()=>setRole("ref2")}
+                style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"6px 12px",borderRadius:20,
+                  border:`1px solid ${role==="ref2"?ROLE_CONFIG.ref2.color:"#2a2a35"}`,
+                  background:role==="ref2"?ROLE_CONFIG.ref2.color+"20":"#1a1a22",
+                  color:role==="ref2"?ROLE_CONFIG.ref2.color:"#555",cursor:"pointer"}}>
+                🟢 Ref 2
+              </button>
+              <button onClick={()=>setRole("ref3")}
+                style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"6px 12px",borderRadius:20,
+                  border:`1px solid ${role==="ref3"?ROLE_CONFIG.ref3.color:"#2a2a35"}`,
+                  background:role==="ref3"?ROLE_CONFIG.ref3.color+"20":"#1a1a22",
+                  color:role==="ref3"?ROLE_CONFIG.ref3.color:"#555",cursor:"pointer"}}>
+                🟣 Ref 3
+              </button>
+            </div>
+          </div>
+
+          {/* Spectator */}
+          <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:"flex-end"}}>
+            <div style={{fontSize:10,color:"#444",fontWeight:700,textTransform:"uppercase"}}>Spectator</div>
+            <div>
+              <button onClick={()=>setRole("spectator")}
+                style={{flexShrink:0,fontSize:11,fontWeight:700,padding:"6px 14px",borderRadius:20,
+                  border:`1px solid ${role==="spectator"?ROLE_CONFIG.spectator.color:"#2a2a35"}`,
+                  background:role==="spectator"?ROLE_CONFIG.spectator.color+"20":"#1a1a22",
+                  color:role==="spectator"?ROLE_CONFIG.spectator.color:"#555",cursor:"pointer"}}>
+                👁️ View
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Tabs */}
