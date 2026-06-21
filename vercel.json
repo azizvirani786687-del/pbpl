@@ -3,6 +3,8 @@
     { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
   ],
   "routes": [
+    { "src": "^/view$", "dest": "/view.html" },
+    { "src": "^/view/(.*)", "dest": "/view.html" },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }

@@ -465,8 +465,8 @@ function BracketTab({ scores }: { scores: any }) {
 }
 
 // ── MAIN APP ──────────────────────────────────────────────────────────────────
-export default function PSLApp() {
-  const [role, setRole] = useState<Role>("admin");
+export default function PSLApp({ initialRole, hideRoleSelector }: { initialRole?: Role; hideRoleSelector?: boolean } = {}) {
+  const [role, setRole] = useState<Role>(initialRole || "admin");
   const [tab, setTab] = useState<"scores"|"standings"|"bracket">("scores");
   const [scores, setScores] = useState<any>({});
   const [players, setPlayers] = useState<any>({});
@@ -537,7 +537,8 @@ export default function PSLApp() {
       </div>
 
       {/* Role selector — separated groups: Admin | Referees | Spectator */}
-      <div style={{padding:"8px 10px",background:"#111118",borderBottom:"1px solid #1a1a22"}}>
+      {!hideRoleSelector && (
+        <div style={{padding:"8px 10px",background:"#111118",borderBottom:"1px solid #1a1a22"}}>
         <div style={{display:"flex",alignItems:"center",gap:12,justifyContent:"space-between"}}>
           {/* Admin */}
           <div style={{display:"flex",flexDirection:"column",gap:6,alignItems:"flex-start"}}>
@@ -595,7 +596,8 @@ export default function PSLApp() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      )}
 
       {/* Tabs */}
       <div style={S.tabs}>
